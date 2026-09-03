@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Vorexa</title>
+<meta name="description" content="Get in touch with Vorexa. Sales, support and partnership enquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/">
+      <span class="wordmark__mark" aria-hidden="true"></span>
+      Vorexa
+    </a>
+    <nav class="masthead__nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="shell lede lede--tight">
+    <h1>Talk to us</h1>
+    <p>Pick the closest match below and we'll route it to the right people. Replies go out within one business day.</p>
+  </section>
+
+  <div class="shell contact-grid">
+
+    <div>
+      <!-- Success state -->
+      <div class="result is-hidden" id="successState" role="status" tabindex="-1">
+        <h2>Message sent</h2>
+        <p id="successBody">Thanks — we've got it. Expect a reply at the address you gave us within one business day.</p>
+      </div>
+
+      <!-- Failure state -->
+      <div class="result result--error is-hidden" id="errorState" role="alert">
+        <h2>That didn't send</h2>
+        <p>The message didn't reach us and your text is still in the form below. Try again, or email <a href="mailto:hello@vorexa.com">hello@vorexa.com</a> directly.</p>
+      </div>
+
+      <form id="contactForm" novalidate>
+
+        <fieldset class="routes">
+          <legend>What's this about?</legend>
+          <div class="routes__set">
+            <div class="route">
+              <input type="radio" name="route" id="routeSales" value="sales" checked>
+              <label for="routeSales">
+                <strong>Sales</strong>
+                <span>Demos, pricing, moving over from something else</span>
+              </label>
+            </div>
+            <div class="route">
+              <input type="radio" name="route" id="routeSupport" value="support">
+              <label for="routeSupport">
+                <strong>Support</strong>
+                <span>Something's broken or behaving oddly</span>
+              </label>
+            </div>
+            <div class="route">
+              <input type="radio" name="route" id="routePartner" value="partnerships">
+              <label for="routePartner">
+                <strong>Partnerships</strong>
+                <span>Integrations, reselling, working together</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="field-pair">
+          <div class="field" data-field>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="nameError">
+            <p class="field-error" id="nameError">Enter your name.</p>
+          </div>
+
+          <div class="field" data-field>
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="emailError">
+            <p class="field-error" id="emailError">Enter a valid email address.</p>
+          </div>
+        </div>
+
+        <!-- Sales + partnerships -->
+        <div class="field-pair" data-route="sales partnerships">
+          <div class="field" data-field>
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" autocomplete="organization" aria-describedby="companyError">
+            <p class="field-error" id="companyError">Enter your company name.</p>
+          </div>
+
+          <div class="field" data-route="sales">
+            <label for="size">Company size</label>
+            <select id="size" name="size">
+              <option value="">Select one</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field" data-route="sales">
+          <label for="topic">How can we help?</label>
+          <select id="topic" name="topic">
+            <option value="">Select one</option>
+            <option>See a demo</option>
+            <option>Talk about pricing</option>
+            <option>Migrate from another tool</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <!-- Support only -->
+        <div class="field-pair" data-route="support">
+          <div class="field">
+            <label for="account">Account email <span class="optional">(if different)</span></label>
+            <input type="email" id="account" name="account" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="urgency">How urgent?</label>
+            <select id="urgency" name="urgency">
+              <option>Low — whenever you get to it</option>
+              <option selected>Normal</option>
+              <option>Blocking — we can't work</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Partnerships only -->
+        <div class="field-pair" data-route="partnerships">
+          <div class="field">
+            <label for="website">Website</label>
+            <input type="url" id="website" name="website" placeholder="https://">
+          </div>
+
+          <div class="field">
+            <label for="partnerType">Partnership type</label>
+            <select id="partnerType" name="partnerType">
+              <option value="">Select one</option>
+              <option>Technology or integration</option>
+              <option>Reseller</option>
+              <option>Agency or consultancy</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field" data-field>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required aria-describedby="messageError"></textarea>
+          <p class="field-error" id="messageError">Tell us a little about what you need.</p>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="marketing" value="yes">
+          <span>Send me occasional product updates. No more than once a month, and you can stop them any time.</span>
+        </label>
+
+        <div class="form-foot">
+          <button type="submit" class="btn btn--primary" id="submitBtn">Send message</button>
+          <span class="form-note" id="formNote">We reply within one business day.</span>
+        </div>
+
+      </form>
+    </div>
+
+    <aside>
+      <div class="aside-block">
+        <h2>Reach us directly</h2>
+        <ul class="channels">
+          <li><span>General</span><a href="mailto:hello@vorexa.com">hello@vorexa.com</a></li>
+          <li><span>Sales</span><a href="mailto:sales@vorexa.com">sales@vorexa.com</a></li>
+          <li><span>Support</span><a href="mailto:support@vorexa.com">support@vorexa.com</a></li>
+          <li><span>Security reports</span><a href="mailto:security@vorexa.com">security@vorexa.com</a></li>
+        </ul>
+      </div>
+
+      <div class="aside-block">
+        <h2>Common questions</h2>
+        <dl class="faq">
+          <dt>When will I hear back?</dt>
+          <dd>Within one business day. Blocking support issues are picked up sooner.</dd>
+
+          <dt>Where do billing questions go?</dt>
+          <dd>Use the support route above and mention billing — it gets routed on from there.</dd>
+
+          <dt>Found a security problem?</dt>
+          <dd>Email security@vorexa.com rather than using this form, so it stays private.</dd>
+
+          <dt>Is anyone around at the weekend?</dt>
+          <dd>Not usually. Messages sent Friday evening get answered Monday morning.</dd>
+        </dl>
+      </div>
+    </aside>
+
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__inner">
+    <span>Vorexa</span>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('contactForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var formNote = document.getElementById('formNote');
+  var successState = document.getElementById('successState');
+  var successBody = document.getElementById('successBody');
+  var errorState = document.getElementById('errorState');
+
+  // ---- Show and hide fields based on the selected route ----
+  var conditional = form.querySelectorAll('[data-route]');
+
+  function applyRoute() {
+    var route = form.querySelector('input[name="route"]:checked').value;
+
+    conditional.forEach(function (el) {
+      var shows = el.getAttribute('data-route').split(' ').indexOf(route) !== -1;
+      el.classList.toggle('is-hidden', !shows);
+      el.querySelectorAll('input, select, textarea').forEach(function (input) {
+        input.disabled = !shows;
+      });
+    });
+
+    var company = document.getElementById('company');
+    company.required = (route === 'sales' || route === 'partnerships');
+
+    submitBtn.textContent =
+      route === 'sales' ? 'Request a demo' :
+      route === 'support' ? 'Send request' : 'Send message';
+  }
+
+  form.querySelectorAll('input[name="route"]').forEach(function (radio) {
+    radio.addEventListener('change', applyRoute);
+  });
+  applyRoute();
+
+  // ---- Validation, on blur rather than on every keystroke ----
+  function wrapperOf(el) { return el.closest('.field'); }
+
+  function validate(el) {
+    var wrap = wrapperOf(el);
+    if (!wrap || !el.required || el.disabled) return true;
+    var ok = el.value.trim() !== '' && el.checkValidity();
+    wrap.setAttribute('data-invalid', ok ? 'false' : 'true');
+    return ok;
+  }
+
+  form.querySelectorAll('input, textarea').forEach(function (el) {
+    el.addEventListener('blur', function () { validate(el); });
+    el.addEventListener('input', function () {
+      var wrap = wrapperOf(el);
+      if (wrap && wrap.getAttribute('data-invalid') === 'true') validate(el);
+    });
+  });
+
+  // ---- Submit ----
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorState.classList.add('is-hidden');
+
+    var fields = form.querySelectorAll('[required]');
+    var firstBad = null;
+
+    fields.forEach(function (el) {
+      if (!validate(el) && !firstBad) firstBad = el;
+    });
+
+    if (firstBad) {
+      firstBad.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    formNote.textContent = '';
+
+    var payload = Object.fromEntries(new FormData(form).entries());
+
+    // ------------------------------------------------------------------
+    // Point ENDPOINT at a form service (Formspree, Basin, Web3Forms) or
+    // your own /api route. Until you do, the catch block below runs and
+    // you'll see the failure state — that is expected, not a bug.
+    // ------------------------------------------------------------------
+    var ENDPOINT = '';
+
+    if (!ENDPOINT) {
+      window.setTimeout(function () {
+        showSuccess(payload.route);
+      }, 600);
+      return;
+    }
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Bad response');
+        showSuccess(payload.route);
+      })
+      .catch(function () {
+        errorState.classList.remove('is-hidden');
+        submitBtn.disabled = false;
+        applyRoute();
+        formNote.textContent = 'We reply within one business day.';
+      });
+  });
+
+  function showSuccess(route) {
+    successBody.textContent =
+      route === 'support'
+        ? "Thanks — this is with the support team. If you marked it blocking, someone will pick it up shortly."
+        : "Thanks — we've got it. Expect a reply at the address you gave us within one business day.";
+
+    form.classList.add('is-hidden');
+    successState.classList.remove('is-hidden');
+    successState.focus();
+  }
+})();
+</script>
+
+</body>
+</html>
