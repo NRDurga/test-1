@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vorexa</title>
+<meta name="description" content="Vorexa — replace this with a one-line description of what you do.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/">
+      <span class="wordmark__mark" aria-hidden="true"></span>
+      Vorexa
+    </a>
+    <nav class="masthead__nav" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="shell lede">
+    <h1>Your site is live.</h1>
+    <p>
+      If you can read this, the deployment is working and the 404 is gone.
+      Replace this page with your real content — the file layout underneath is
+      already the one Vercel expects.
+    </p>
+    <p class="meta-line">
+      <span class="dot" aria-hidden="true"></span>
+      Served from the repository root
+    </p>
+    <div class="button-row">
+      <a class="btn btn--primary" href="/contact.html">Go to the contact page</a>
+      <a class="btn btn--ghost" href="#layout">See the file layout</a>
+    </div>
+  </section>
+
+  <section class="shell ruled" id="layout">
+    <div>
+      <h2>index.html</h2>
+      <p>
+        This file. It has to sit at the top level of the repository, not inside
+        a folder. Vercel serves it as the homepage with no configuration at all.
+      </p>
+    </div>
+    <div>
+      <h2>contact.html</h2>
+      <p>
+        Reachable at <code>/contact.html</code>. Any extra pages work the same
+        way — add the file, and the path follows the filename.
+      </p>
+    </div>
+    <div>
+      <h2>styles.css</h2>
+      <p>
+        Linked from both pages with a leading slash, so the path resolves from
+        the site root rather than the current page.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell lede lede--tight">
+    <h1>Keep the settings empty.</h1>
+    <p>
+      With Framework Preset set to Other and no build command, Vercel serves
+      these files directly. Leave Root Directory and Output Directory blank.
+      There is nothing to build, so there is nothing to misconfigure.
+    </p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__inner">
+    <span>Vorexa</span>
+    <nav aria-label="Footer">
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
